@@ -1,6 +1,6 @@
 <!-- FICHIER PRINCIPAL : hebergeur-maxime
 
-Ajout d'un onglet "CV" distinct similaire à "Projets" avec ton contenu fourni -->
+Site avec onglets, l'onglet CV contient uniquement le lien vers le fichier CV.pdf, le parcours scolaire et expériences professionnelles sont dans la page d'accueil -->
 
 <!doctype html>
 <html lang="fr">
@@ -57,7 +57,7 @@ footer{color:var(--muted);font-size:0.9rem;text-align:center;margin-top:8px}
 </header>
 <main>
 <section id="home" class="card" role="tabpanel" aria-labelledby="tab-home">
-<h1>Mon parcours scolaire</h1>
+<h1>Mon parcours scolaire et expériences professionnelles</h1>
 <p><strong>Collège</strong></p>
 <ul>
 <li>6->5eme à Jean Mermoz Biscarrosse 📍</li>
@@ -72,7 +72,7 @@ footer{color:var(--muted);font-size:0.9rem;text-align:center;margin-top:8px}
 <p><strong>Expériences professionnelles</strong></p>
 <ul>
 <li>Stage : Born Bike Biscarrosse Bourg 📍 -> Mécanique + Commerce</li>
-<li>Stage 2 : Direction Générale de l'Armement - Essais missile de Biscarrosse 📍 -> Informatique</li>
+<li>Stage 2 : DGA - Essais missile de Biscarrosse 📍 -> Informatique</li>
 <li>Apprentissage : DGA-EM de Biscarrosse 📍 -> Informatique</li>
 </ul>
 </section>
@@ -83,34 +83,14 @@ footer{color:var(--muted);font-size:0.9rem;text-align:center;margin-top:8px}
 <section id="projects" class="card" role="tabpanel" aria-labelledby="tab-projects" hidden>
 <h1>Projets</h1>
 <div class="grid">
-<article class="proj"><h3>CV Maxime Lemaire</h3><p class="muted">Description courte du projet. <a href="#" style="color:var(--accent)">Voir</a></p></article>
+<article class="proj"><h3>Projet A</h3><p class="muted">Description courte du projet. <a href="#" style="color:var(--accent)">Voir</a></p></article>
 <article class="proj"><h3>Projet B</h3><p class="muted">Description courte du projet B. <a href="#" style="color:var(--accent)">Voir</a></p></article>
 <article class="proj"><h3>Projet C</h3><p class="muted">Description courte du projet C. <a href="#" style="color:var(--accent)">Voir</a></p></article>
 </div>
 </section>
 <section id="cv" class="card" role="tabpanel" aria-labelledby="tab-cv" hidden>
 <h1>Mon CV</h1>
-<div class="grid">
-<article class="proj">
-<h3>Parcours Scolaire</h3>
-<ul>
-<li>Collège : 6->5eme Jean Mermoz Biscarrosse, redoublement, 5->3eme Gabarret Mont de Marsan, Brevet mention bien</li>
-<li>Lycée : 2nd -> 1ère Pontonx sur Adour Dax</li>
-</ul>
-</article>
-<article class="proj">
-<h3>Expériences Professionnelles</h3>
-<ul>
-<li>Stage : Born Bike Biscarrosse Bourg -> Mécanique + Commerce</li>
-<li>Stage 2 : DGA - Essais missile de Biscarrosse -> Informatique</li>
-<li>Apprentissage : DGA-EM de Biscarrosse -> Informatique</li>
-</ul>
-</article>
-<article class="proj">
-<h3>CV PDF</h3>
-<p><a href="CV.pdf" target="_blank" style="color:var(--accent)">Télécharger mon CV (PDF)</a></p>
-</article>
-</div>
+<p><a href="CV.pdf" download style="color:var(--accent)">Télécharger mon CV (PDF)</a></p>
 </section>
 <section id="contact" class="card" role="tabpanel" aria-labelledby="tab-contact" hidden>
 <h1>Contact</h1>
@@ -138,4 +118,3 @@ window.addEventListener('DOMContentLoaded',()=>{document.getElementById('year').
 </script>
 </body>
 </html>
-
