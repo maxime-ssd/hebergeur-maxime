@@ -1,45 +1,85 @@
 <!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>hebergeur de Maxime</title>
-</head>
-<body>
-  <h1>Bienvenue</h1>
-  <h3> Mon parcours scolaire</h3>
+<section id="contact" class="card" role="tabpanel" aria-labelledby="tab-contact" hidden>
+<h1>Contact</h1>
+<p>Formulaire de contact demo (non fonctionnel localement). Remplacez l'action par votre serveur ou service (Formspree, Netlify Forms...).</p>
+<form onsubmit="event.preventDefault();alert('Formulaire envoyé (demo)');">
+<label for="name">Nom</label><br>
+<input id="name" name="name" placeholder="Votre nom" style="width:100%;padding:8px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit"><br>
+<label for="message">Message</label><br>
+<textarea id="message" name="message" rows="4" placeholder="Votre message" style="width:100%;padding:8px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit"></textarea><br>
+<button type="submit" style="padding:10px 16px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),#60a5fa);color:#072033;font-weight:700">Envoyer</button>
+</form>
+</section>
 
-  <p>- 6 -> 5eme a Jean mermoz Biscarrosse 📍
-     - Redoublement
-     - 5 -> 3eme a Gabarret Mont de Marsan 📍
-     - brevet avec mention bien, passage au Lycée
-     - 2nd -> 1ere Pontonx sur adour Dax 📍</p>
-  
-  <h3> Maintenant je vais expliquer ce que j'ai fais durant se debut d'année en 1er CIEL</h3>
-  <p> Je vais décrire en trois parties la création d'un serveur lamp avec une machine virtuel (VirtualBox)
-    1. Objectif de l’activité
-<hr>
-L’objectif était de mettre en place un serveur LAMP sur un ordinateur afin de comprendre comment un serveur web fonctionne et comment les composants Linux, Apache, MySQL et PHP interagissent.
-  
-    2. Déroulement de l’activité
 
-Nous avons commencé par installer Linux sur notre  machine virtuelle.
+</main>
 
-Ensuite, nous avons installé Apache pour gérer les requêtes web.
 
-Nous avons mis en place MySQL pour pouvoir stocker des données.
+<footer>
+<div class="card" style="text-align:center">© <span id="year"></span> • MonSite • Construisez quelque chose d'utile ✨</div>
+</footer>
+</div>
 
-Enfin, nous avons installé PHP pour rendre les pages web dynamiques.
 
-Une fois le serveur configuré, nous avons testé son fonctionnement en créant une page web simple affichant un message.
- <hr>
-    3. Résultats
+<script>
+// Small JS to manage tabs, deep links and accessibility
+const tabs = document.querySelectorAll('.tab');
+const panels = document.querySelectorAll('[role="tabpanel"]');
+const menuToggle = document.querySelector('.menu-toggle');
+const tabsContainer = document.getElementById('main-tabs');
 
-Le serveur LAMP fonctionne correctement.
 
-Apache affiche la page web dans le navigateur.
+function setActive(targetId){
+tabs.forEach(t=>{
+const active = t.dataset.target === targetId;
+t.classList.toggle('active', active);
+t.setAttribute('aria-current', active ? 'true' : 'false');
+});
+panels.forEach(p=> p.hidden = p.id !== targetId);
+// update url hash without scrolling
+history.replaceState(null, '', '#'+targetId);
+}
 
-Les composants interagissent correctement : PHP peut communiquer avec MySQL.
 
-L’activité a permis de comprendre le rôle de chaque élément du serveur.</p>
+tabs.forEach(t=>{
+t.addEventListener('click', e=>{
+e.preventDefault();
+const target = t.dataset.target;
+setActive(target);
+// if mobile, hide menu
+if(window.innerWidth < 700){ tabsContainer.classList.remove('show'); menuToggle.setAttribute('aria-expanded','false'); }
+});
+});
+
+
+// menu toggle for mobile
+menuToggle.addEventListener('click', ()=>{
+const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+menuToggle.setAttribute('aria-expanded', String(!expanded));
+tabsContainer.classList.toggle('show');
+});
+
+
+// on load, read hash or default to home
+window.addEventListener('DOMContentLoaded', ()=>{
+document.getElementById('year').textContent = new Date().getFullYear();
+const hash = location.hash.replace('#','') || 'home';
+if(document.getElementById(hash)) setActive(hash);
+else setActive('home');
+
+
+// keyboard navigation: left/right to move tabs
+document.addEventListener('keydown', (e)=>{
+const keys = ['ArrowLeft','ArrowRight'];
+if(!keys.includes(e.key)) return;
+const activeIndex = Array.from(tabs).findIndex(t=>t.classList.contains('active'));
+if(activeIndex === -1) return;
+let next = activeIndex + (e.key === 'ArrowRight' ? 1 : -1);
+if(next < 0) next = tabs.length -1;
+if(next >= tabs.length) next = 0;
+tabs[next].click();
+});
+});
+</script>
 </body>
 </html>
