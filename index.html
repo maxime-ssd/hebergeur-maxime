@@ -1,85 +1,153 @@
+<!--
+FICHIER PRINCIPAL : hebergeur-maxime
+
+Instructions :
+- Tu m'as demandé d'appeler ce fichier exactement **hebergeur-maxime** (sans extension visible).
+- Pour GitHub Pages : GitHub sert par défaut **index.html**. Si tu veux garder le nom **hebergeur-maxime**, ajoute en plus un petit fichier `index.html` (exemple de redirection en bas) qui redirige vers `hebergeur-maxime`.
+
+Copie ce contenu dans un fichier nommé **hebergeur-maxime** (ou hebergeur-maxime.html si tu préfères explicitement .html). Si tu veux que GitHub Pages l'affiche directement, renomme-le ensuite en `index.html`.
+-->
+
 <!doctype html>
-<section id="contact" class="card" role="tabpanel" aria-labelledby="tab-contact" hidden>
-<h1>Contact</h1>
-<p>Formulaire de contact demo (non fonctionnel localement). Remplacez l'action par votre serveur ou service (Formspree, Netlify Forms...).</p>
-<form onsubmit="event.preventDefault();alert('Formulaire envoyé (demo)');">
-<label for="name">Nom</label><br>
-<input id="name" name="name" placeholder="Votre nom" style="width:100%;padding:8px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit"><br>
-<label for="message">Message</label><br>
-<textarea id="message" name="message" rows="4" placeholder="Votre message" style="width:100%;padding:8px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit"></textarea><br>
-<button type="submit" style="padding:10px 16px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),#60a5fa);color:#072033;font-weight:700">Envoyer</button>
-</form>
-</section>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hebergeur Maxime</title>
+  <meta name="description" content="Site démo — hebergeur-maxime">
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#6ee7b7;--muted:#94a3b8;--glass:rgba(255,255,255,0.04)}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(180deg,#071023 0%, #081830 60%);color:#e6eef8;line-height:1.5}
+    .container{max-width:980px;margin:28px auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:700;color:#072033}
+    nav{display:flex;gap:8px}
+    .tabs{display:flex;gap:6px}
+    .tab{background:var(--glass);padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:600;outline:0}
+    .tab[aria-current="true"], .tab.active{background:linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));color:var(--accent);box-shadow:0 6px 20px rgba(6,11,23,0.6)}
+    .menu-toggle{display:none;border:0;background:transparent;color:var(--muted);font-weight:700}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:14px;box-shadow:0 8px 28px rgba(2,6,23,0.6);margin-bottom:16px}
+    h1{margin:0 0 12px;font-size:1.6rem}
+    p{margin:0 0 12px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+    .proj{padding:12px;border-radius:10px;background:rgba(255,255,255,0.02)}
+    .proj h3{margin:0 0 8px}
+    footer{color:var(--muted);font-size:0.9rem;text-align:center;margin-top:8px}
+    .tab:focus{outline:3px solid rgba(110,231,183,0.18);outline-offset:3px}
+    @media (max-width:700px){header{flex-direction:column;align-items:stretch;gap:12px}nav{justify-content:space-between}.menu-toggle{display:inline-block}.tabs{display:none;}.tabs.show{display:flex;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">HM</div>
+        <div>
+          <div style="font-weight:700">Hebergeur-Maxime</div>
+          <div style="font-size:0.85rem;color:var(--muted)">Site démo — nom du fichier : hebergeur-maxime</div>
+        </div>
+      </div>
 
+      <nav aria-label="Navigation principale">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="main-tabs">Menu ☰</button>
+        <div id="main-tabs" class="tabs" role="tablist">
+          <a class="tab" role="tab" href="#home" data-target="home" id="tab-home">Accueil</a>
+          <a class="tab" role="tab" href="#about" data-target="about" id="tab-about">À propos</a>
+          <a class="tab" role="tab" href="#projects" data-target="projects" id="tab-projects">Projets</a>
+          <a class="tab" role="tab" href="#contact" data-target="contact" id="tab-contact">Contact</a>
+        </div>
+      </nav>
+    </header>
 
-</main>
+    <main>
+      <section id="home" class="card" role="tabpanel" aria-labelledby="tab-home">
+        <h1>Bienvenue ✨</h1>
+        <p>Ton fichier s'appelle <strong>hebergeur-maxime</strong>. Si tu veux que GitHub Pages l'affiche comme page principale, renomme-le ensuite en <code>index.html</code> (ou ajoute le petit index de redirection ci-dessous).</p>
+      </section>
 
+      <section id="about" class="card" role="tabpanel" aria-labelledby="tab-about" hidden>
+        <h1>À propos</h1>
+        <p>Remplace ce texte par ta bio. Si tu veux, je peux automatiser l'ajout de projets et liens.</p>
+      </section>
 
-<footer>
-<div class="card" style="text-align:center">© <span id="year"></span> • MonSite • Construisez quelque chose d'utile ✨</div>
-</footer>
-</div>
+      <section id="projects" class="card" role="tabpanel" aria-labelledby="tab-projects" hidden>
+        <h1>Projets</h1>
+        <div class="grid">
+          <article class="proj"><h3>Projet A</h3><p class="muted">Description courte du projet A. <a href="#" style="color:var(--accent)">Voir</a></p></article>
+          <article class="proj"><h3>Projet B</h3><p class="muted">Description courte du projet B. <a href="#" style="color:var(--accent)">Voir</a></p></article>
+          <article class="proj"><h3>Projet C</h3><p class="muted">Description courte du projet C. <a href="#" style="color:var(--accent)">Voir</a></p></article>
+        </div>
+      </section>
 
+      <section id="contact" class="card" role="tabpanel" aria-labelledby="tab-contact" hidden>
+        <h1>Contact</h1>
+        <form onsubmit="event.preventDefault();alert('Formulaire envoyé (demo)');">
+          <label for="name">Nom</label><br>
+          <input id="name" name="name" placeholder="Votre nom" style="width:100%;padding:8px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit"><br>
+          <label for="message">Message</label><br>
+          <textarea id="message" name="message" rows="4" placeholder="Votre message" style="width:100%;padding:8px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit"></textarea><br>
+          <button type="submit" style="padding:10px 16px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),#60a5fa);color:#072033;font-weight:700">Envoyer</button>
+        </form>
+      </section>
 
-<script>
-// Small JS to manage tabs, deep links and accessibility
-const tabs = document.querySelectorAll('.tab');
-const panels = document.querySelectorAll('[role="tabpanel"]');
-const menuToggle = document.querySelector('.menu-toggle');
-const tabsContainer = document.getElementById('main-tabs');
+    </main>
 
+    <footer>
+      <div class="card" style="text-align:center">© <span id="year"></span> • Hebergeur-Maxime</div>
+    </footer>
+  </div>
 
-function setActive(targetId){
-tabs.forEach(t=>{
-const active = t.dataset.target === targetId;
-t.classList.toggle('active', active);
-t.setAttribute('aria-current', active ? 'true' : 'false');
-});
-panels.forEach(p=> p.hidden = p.id !== targetId);
-// update url hash without scrolling
-history.replaceState(null, '', '#'+targetId);
-}
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('[role="tabpanel"]');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const tabsContainer = document.getElementById('main-tabs');
+    function setActive(targetId){
+      tabs.forEach(t=>{
+        const active = t.dataset.target === targetId;
+        t.classList.toggle('active', active);
+        t.setAttribute('aria-current', active ? 'true' : 'false');
+      });
+      panels.forEach(p=> p.hidden = p.id !== targetId);
+      history.replaceState(null, '', '#'+targetId);
+    }
+    tabs.forEach(t=>{
+      t.addEventListener('click', e=>{e.preventDefault();const target = t.dataset.target;setActive(target);if(window.innerWidth < 700){ tabsContainer.classList.remove('show'); menuToggle.setAttribute('aria-expanded','false'); }});
+    });
+    menuToggle.addEventListener('click', ()=>{const expanded = menuToggle.getAttribute('aria-expanded') === 'true';menuToggle.setAttribute('aria-expanded', String(!expanded));tabsContainer.classList.toggle('show');});
+    window.addEventListener('DOMContentLoaded', ()=>{document.getElementById('year').textContent = new Date().getFullYear();const hash = location.hash.replace('#','') || 'home';if(document.getElementById(hash)) setActive(hash);else setActive('home');document.addEventListener('keydown', (e)=>{const keys = ['ArrowLeft','ArrowRight'];if(!keys.includes(e.key)) return;const activeIndex = Array.from(tabs).findIndex(t=>t.classList.contains('active'));if(activeIndex === -1) return;let next = activeIndex + (e.key === 'ArrowRight' ? 1 : -1);if(next < 0) next = tabs.length -1;if(next >= tabs.length) next = 0;tabs[next].click();});});
+  </script>
 
+  <!--
+  Si tu veux que GitHub Pages serve automatiquement ce fichier alors que son nom est "hebergeur-maxime",
+  crée un fichier index.html à la racine avec UNE des 2 méthodes ci-dessous :
 
-tabs.forEach(t=>{
-t.addEventListener('click', e=>{
-e.preventDefault();
-const target = t.dataset.target;
-setActive(target);
-// if mobile, hide menu
-if(window.innerWidth < 700){ tabsContainer.classList.remove('show'); menuToggle.setAttribute('aria-expanded','false'); }
-});
-});
+  1) Redirection HTML simple (index.html) :
 
+  <!doctype html>
+  <html>
+    <head>
+      <meta http-equiv="refresh" content="0; url=hebergeur-maxime">
+      <title>Redirecting...</title>
+    </head>
+    <body>If you are not redirected, <a href="hebergeur-maxime">click here</a>.</body>
+  </html>
 
-// menu toggle for mobile
-menuToggle.addEventListener('click', ()=>{
-const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-menuToggle.setAttribute('aria-expanded', String(!expanded));
-tabsContainer.classList.toggle('show');
-});
+  2) Redirection JS (index.html) :
 
+  <!doctype html>
+  <html>
+    <head><meta charset="utf-8"><title>Redirect</title></head>
+    <body>
+      <script>location.href = 'hebergeur-maxime';</script>
+      <p>Si la redirection échoue, <a href="hebergeur-maxime">clique ici</a>.</p>
+    </body>
+  </html>
 
-// on load, read hash or default to home
-window.addEventListener('DOMContentLoaded', ()=>{
-document.getElementById('year').textContent = new Date().getFullYear();
-const hash = location.hash.replace('#','') || 'home';
-if(document.getElementById(hash)) setActive(hash);
-else setActive('home');
-
-
-// keyboard navigation: left/right to move tabs
-document.addEventListener('keydown', (e)=>{
-const keys = ['ArrowLeft','ArrowRight'];
-if(!keys.includes(e.key)) return;
-const activeIndex = Array.from(tabs).findIndex(t=>t.classList.contains('active'));
-if(activeIndex === -1) return;
-let next = activeIndex + (e.key === 'ArrowRight' ? 1 : -1);
-if(next < 0) next = tabs.length -1;
-if(next >= tabs.length) next = 0;
-tabs[next].click();
-});
-});
-</script>
+  Remarque : la meilleure pratique est de nommer le fichier principal "index.html" ; la redirection est une astuce si tu veux absolument garder le nom personnalisé.
+  -->
 </body>
 </html>
